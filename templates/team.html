@@ -1,0 +1,67 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+Team
+{% endblock %}
+
+{% block css %}
+<style>
+    .card img{
+        width: 100%;
+        height: 100%;
+    }
+    .card{
+        height: 500px;
+        margin: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+<div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'img/team/Roshan sir.png' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Dr.Roshan K. Srivastav</h5>
+          <p class="card-text">Project Director</p>
+          <p class="card-text">project.director@iittnif.com</p>
+          <a href="#" class="btn btn-primary">Contact</a>
+        </div>
+      </div>
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'img/team/madhavimam.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Dr.G Naga Sai Madhavi</h5>
+          <p class="card-text">Postdoc-GNSS</p>
+          <p class="card-text">gnmadhavi@iittnif.com</p>
+          <a href="#" class="btn btn-primary">Contact</a>
+        </div>
+      </div>
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'img/team/sujanth sir.png' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">K.G.Sujanth Narayan</h5>
+          <p class="card-text">Technical Lead-GNSS</p>
+          <p class="card-text">sujanth@iittnif.com</p>
+          <a href="#" class="btn btn-primary">Contact</a>
+        </div>
+      </div>
+    <div class="card" style="width: 18rem;">
+        <img src="{% static 'img/team/Me.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Tejaswini Rajamahanthi</h5>
+          <p class="card-text">Star-PNT Intern</p>
+          <p class="card-text">tejaswinirajamahanthi@gmail.com</p>
+          <a href="#" class="btn btn-primary">Contact</a>
+        </div>
+      </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+       
+{% endblock %}

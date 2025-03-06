@@ -1,0 +1,36 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+Data
+{% endblock %}
+
+{% block css %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+<div style="display: flex; justify-content: center;">
+  <h2>Download Meta Data Files</h2>
+</div>
+
+<div style="display: flex; justify-content: center; padding: 20px; background-color: bisque; margin: 20px; border: 1px solid black; border-radius: 10px;">
+  <ul>
+    {% for file in files %}
+        <li style="margin: 10px; background-color: rgb(255, 255, 255); padding: 10px; border: 1px solid rgba(255, 0, 0, 0); border-radius: 10px;">
+            <!-- Display the file path and create a download link -->
+            <a href="{{ MEDIA_URL }}{{ file }}" download>{{ file }}</a>
+        </li>
+    {% empty %}
+        <li>No files available.</li>
+    {% endfor %}
+</ul>
+</div>
+{% endblock %}
+
+{% block js %}
+       
+{% endblock %}

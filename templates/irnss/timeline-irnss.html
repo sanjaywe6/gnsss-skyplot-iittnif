@@ -1,0 +1,240 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+Timeline
+{% endblock %}
+
+{% block css %}
+<style>
+
+main {
+  background-color: #474e5d;
+}
+
+.header {
+    color: #110701;
+    padding: 5px;
+    background-color: rgb(242, 242, 242);
+    text-align: center;
+    position: relative;
+    width: 100%;
+    top: 0;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+}
+
+.content img {
+  width: 50%;
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+  left: 31px;
+  }
+  
+  /* Full-width containers */
+  .container {
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 25px;
+  }
+  
+  /* Make sure that all arrows are pointing leftwards */
+  .container::before {
+  left: 60px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+  left: 15px;
+  }
+  
+  /* Make all right containers behave like the left ones */
+  .right {
+  left: 0%;
+  }
+}
+</style>
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+<div class="header">
+    <h1>TIMELINE OF IRNSS SATELLITES</h1>
+</div>
+
+<div class="timeline">
+  <div class="container left">
+    <div class="content">
+      <h2>JULY 01, 2013</h2>
+      <p>
+        IRNSS-1A, PSLV-C22<br><br>
+        The Polar Satellite Launch Vehicle, PSLV-C22, successfully launched India’s first dedicated navigational satellite, IRNSS-1A, from the First Launch Pad (FLP) of Satish Dhawan Space Centre, Sriharikota. This marked the fourth flight of the ‘XL’ version of PSLV. IRNSS-1A is the first satellite in the Indian Regional Navigation Satellite System (IRNSS) and is part of the seven-satellite IRNSS space segment. IRNSS-1A has a navigation payload that transmits signals in L5-band and S-band and includes a Rubidium atomic clock. It also features a ranging payload with a C-band transponder for precise satellite range determination, with Corner Cube Retro Reflectors for laser ranging.
+    </p>
+      <img src="IRNSS 1A after integration.jpg" alt="IRNSS 1A SATELLITE AFTER INTEGRATION">
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>OCTOBER 16, 2014</h2>
+      <p>
+        IRNSS-1C, PSLV-C26<br><br>
+        The PSLV-C26 launched the third satellite, IRNSS-1C, of the Indian Regional Navigation Satellite System (IRNSS) from the First Launch Pad (FLP) of Satish Dhawan Space Centre (SDSC) SHAR, Sriharikota. This mission used the ‘XL’ version of PSLV, marking its seventh flight in this configuration. IRNSS-1C is the third of seven satellites in the IRNSS space segment. It follows IRNSS-1A and IRNSS-1B launched in July 2013 and April 2014, with a lift-off mass of 1425.4 kg. IRNSS-1C was completed in less than six months after its predecessor's launch. IRNSS-1C is powered by two solar arrays generating up to 1,660 watts of power, with a lifespan of ten years. It carries navigation and ranging payloads, including a highly accurate Rubidium atomic clock and Corner Cube Retro Reflectors for laser ranging.
+    </p>
+      <img src="PSLV-C26 inside mobile service tower.jpg" alt="PSLV-C26 INSIDE MOBILE SERVICE TOWER">
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>MARCH 28, 2015</h2>
+      <p>
+        IRNSS-1D, PSLV-C27<br><br>
+        The PSLV-C27 successfully launched the IRNSS-1D, the fourth satellite of the Indian Regional Navigation Satellite System, from the Second Launch Pad of the Satish Dhawan Space Centre. This marks the eighth time the ‘XL’ configuration has been used. IRNSS-1D is the fourth navigation satellite in the IRNSS space segment. It has a lift-off mass of 1425 kg and a configuration similar to its predecessors, IRNSS-1A, 1B, and 1C. The satellite was developed less than four months after the launch of its predecessor. The two solar panels of IRNSS-1D, each with Ultra Triple Junction solar cells, generate about 1660 Watts. Sun and star sensors, along with gyroscopes, provide orientation reference. Special thermal control schemes are in place for critical elements such as atomic clocks. The Attitude and Orbit Control System (AOCS) uses reaction wheels, magnetic torques, and thrusters to maintain satellite orientation. Its propulsion system includes a Liquid Apogee Motor (LAM) and thrusters. IRNSS-1D was initially launched into a sub-Geosynchronous Transfer Orbit (sub-GTO) with specific orbit parameters and inclination. After deploying its solar panels, the satellite used its Liquid Apogee Motor (LAM) to maneuver into its final circular geostationary orbit.
+    </p>
+      <img src="pslv-c27-2nd-stage-during-vehicle-assembly.jpg.webp" alt="PSLV-C27 2ND STAGE DURING VEHICLE ASSEMBLY">
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>JANUARY 20, 2016</h2>
+      <p>
+        IRNSS-1E, PSLV-C31<br><br>
+        In its 33rd flight, the Polar Satellite Launch Vehicle launched IRNSS-1E, the fifth satellite of the Indian Regional Navigation Satellite System, using the ‘XL’ version of PSLV for the eleventh time. IRNSS-1E, with a lift-off mass of 1425 kg, is the fifth navigation satellite of the seven satellites comprising the IRNSS space segment. Its predecessors, IRNSS-1A, 1B, 1C, and 1D, were launched between July 2013 and March 2015. The configuration of IRNSS-1E is similar to that of IRNSS-1A, 1B, 1C, and 1D. IRNSS-1E carries two payloads - navigation and ranging. The navigation payload operates in L5-band and S-band, transmitting navigation signals and containing a Rubidium atomic clock. The ranging payload consists of a C-band transponder and Corner Cube Retro Reflectors for laser ranging. IRNSS-1E is the fifth navigation satellite in the IRNSS space segment. It was launched by PSLV-C31 on January 20, 2016. The satellite carries navigation and ranging payloads and has a lift-off mass of 1425 kg. It is similar in configuration to its predecessors and operates in L5-band and S-band.
+    </p>
+      <img src="22-irnss-1espacecraftbeingintegratedwithpslv-c31.jpg.webp" alt="IRNSS-1E SPACECRAFT BEING INTEGRATED WITH PSLV-C31">
+    </div>
+  </div>
+  <div class="container left">
+    <div class="content">
+      <h2>MARCH 10, 2016</h2>
+      <p>
+        IRNSS-1F, PSLV-C32<br><br>
+        The PSLV-C32 launched IRNSS-1F, the sixth satellite of the Indian Regional Navigational Satellite System, from the Second Launch Pad of Satish Dhawan Space Centre in Sriharikota. This is the thirty-third consecutively successful mission of PSLV and the twelfth in its 'XL' configuration. IRNSS-1F is the sixth navigation satellite in the Indian Regional Navigation Satellite System (IRNSS). Its predecessors, IRNSS-1A to 1E, were successfully launched between July 2013 and January 2016. All five satellites are currently operating satisfactorily from their designated orbital positions. IRNSS-1F has a lift-off mass of 1425 kg and features two solar arrays generating about 1660 Watts of electrical power. Its Attitude and Orbit Control System (AOCS) maintains orientation using reaction wheels, magnetic torques, and thrusters, with a propulsion system consisting of a Liquid Apogee Motor (LAM) and thrusters. IRNSS-1F carries two payloads: navigation and ranging. The navigation payload transmits signals in L5-band and S-band and includes a Rubidium atomic clock. The ranging payload consists of a C-band transponder for accurate range determination. 
+    </p>
+      <img src="12irnss-1fspacecraftisbeingintegratedwithpslv-c32.jpg.webp" alt="IRNSS-1F SPACECRAFT BEING INTEGRATED WITH PSLV-C32">
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>APRIL 28, 2016</h2>
+      <p>
+        IRNSS-1G, PSLV-C33<br><br>
+        On April 28, 2016, PSLV-C33 launched IRNSS-1G, the seventh satellite of the Indian Regional Navigation Satellite System, into a Sub-Geosynchronous Transfer Orbit. The launch took place at the Satish Dhawan Space Centre in Sriharikota using the PSLV-XL version. The 'XL' variant of the PSLV has been utilized for the thirteenth time. In addition to deploying six IRNSS satellites, PSLV-XL has overseen the successful launch of various other spacecraft, including India’s Mars Orbiter spacecraft, the multi-wavelength observatory ASTROSAT, Radar Imaging satellite RISAT-1, and the Communication satellite GSAT-12Furthermore, the PSLV-XL successfully placed five satellites from the United Kingdom into orbit during a single commercial mission. PSLV has completed 34 successful missions, proving its reliability. IRNSS-1G is the seventh navigation satellite in the IRNSS space segment, with the same configuration and mass as its predecessors. IRNSS-1G, like its predecessors, carries two types of payloads: navigation and ranging. The navigation payload transmits signals in L5-band and S-band and includes a Rubidium atomic clock. The ranging payload consists of a C-band transponder for accurate range determination.
+    </p>
+      <img src="container with TRNSS-1G being transported.jpg" alt="CONTAINER WITH IRNSS-1G BEING TRANSPORTED">
+    </div>
+  </div>
+  <div class="container right">
+    <div class="content">
+      <h2>APRIL 12, 2018</h2>
+      <p>
+        IRNSS-1I, PSLV-C41<br><br>
+        India's PSLV-C41 in XL configuration launched the IRNSS-1I satellite from SDSC SHAR, Sriharikota. This was the twentieth time the 'XL' configuration was used. IRNSS-1I is the eighth satellite in the NavIC navigation constellation. IRNSS-1I is the eighth navigation satellite in the IRNSS space segment. It has a lift-off mass of 1425 kg and a configuration similar to its predecessors, IRNSS-1A, 1B, 1C, 1D, 1E, 1F, and 1G. PayloadsIRNSS-1I carries a navigation payload transmitting signals for position, velocity, and time determination, equipped with Rubidium atomic clocks. Its ranging payload includes a C-band transponder for accurate range determination and Corner Cube Retro Reflectors for LASER Ranging.
+    </p>
+      <img src="IRNSS 1-I, PSLV-C41.jpg" alt="IRNSS-1I">
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+{% endblock %}

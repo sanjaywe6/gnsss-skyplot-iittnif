@@ -1,0 +1,189 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block css %}
+<style>
+    div.scroll-container {
+        background-color: #333;
+        overflow: auto;
+        white-space: nowrap;
+        padding: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+{% load static %}
+
+<div style="text-align:center">
+    <h2>IRNSS IMAGE GALLERY</h2>
+    <p>Scroll down</p>
+</div>
+
+<div class="scroll-container">
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/1irnss-1fincleanroomduringitsintegration.jpg.webp' %}"
+            alt="IRNSS-1F in clean room during its integration" style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/4irnss-1fundergoingvibrationtest.jpg.webp' %}" alt="Snow"
+            style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/7placementofnozzleendsegmentofpslv-c321ststageoverlaunchpedestal.jpg.webp' %}"
+            alt="Mountains" style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/10ingerationof3rd4thstageofpslv-c32.jpg.webp' %}" alt="Lights"
+            style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/12irnss-1fspacecraftisbeingintegratedwithpslv-c32.jpg.webp' %}"
+            alt="Lights" style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/14fullyintegratedpslv-c32withirnss-1fbeingmovedoutofvehicleassemblybuilding.jpg.webp' %}"
+            alt="Lights" style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/22-irnss-1espacecraftbeingintegratedwithpslv-c31.jpg.webp' %}"
+            alt="Lights" style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/24-irnss-1espacecraftintegratedwithpslv-c31.jpg.webp' %}" alt="Lights"
+            style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/assembly of pslv-c26.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/close-up view of pslvc31.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/container with TRNSS-1G being transported.jpg' %}" alt="Lights"
+            style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/fullyintegratedpslv-c31withirnss-1ebeingmovedtosecondlaunchpadslp.jpg' %}"
+            alt="Lights" style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/integration-of-1st-stage-of-pslv-c27.jpg.webp' %}" alt="Lights"
+            style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/integration-of-3rd-4th-stage-of-pslv-c27.jpg.webp' %}" alt="Lights"
+            style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/IRNSS 1-I, PSLV-C41.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/IRNSS 1A after integration.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/' %}" alt="Lights" style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/irnss-1c spacecraft-6.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/irnss-1d-between-two-halves-of-pslv-c27-heat-shield.jpg.webp' %}"
+            alt="Lights" style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/IRNSS-1d.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/IRNSS-1E being loaded into the large space simulation chamber for thermal vacuum test.jpg' %}"
+            alt="Lights" style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/IRNSS1-I.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/IRNSS1A test.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/IRNSS1A test.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/IRNSS1A.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/Placement of Nozzle end segment of PSLV-C31.jpg' %}" alt="Lights"
+            style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/placement-of-nozzle-end-segment-of-pslv-c27-1st-stage-over-launch-pedestal-progress.jpg.webp' %}"
+            alt="Lights" style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/pslv-c22 launch pad.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/pslv-c22 liquid secondstage-8.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/pslv-c22 on tower-6.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/pslv-c22 second stage liquid engine-9.jpg' %}" alt="Lights"
+            style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/pslv-c22 take off-19.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/pslv-c22.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/PSLV-C26 inside mobile service tower.jpg' %}" alt="Lights"
+            style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/PSLV-C26 prior to integration-1.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/pslv-c26.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/pslv-c27-2nd-stage-during-vehicle-assembly.jpg.webp' %}" alt="Lights"
+            style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/pslv-c27-integrated-upto-4th-stage-vehicle-assembly-building.jpg.webp' %}"
+            alt="Lights" style="width:100%" onclick="myFunction(this);">
+    </div>
+    <div class="column">
+        <img src="{% static 'img/irnssgallery1/pslv-c41 lift off.jpg' %}" alt="Lights" style="width:100%"
+            onclick="myFunction(this);">
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

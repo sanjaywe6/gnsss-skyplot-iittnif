@@ -1,0 +1,197 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+GNSS
+{% endblock %}
+
+{% block css %}
+<style>
+        body {
+            font-family: "Lato", sans-serif;
+            margin: 0;
+            font-size: 17px;
+            background-color: #111;
+            color: #f2f2f2;
+        }
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+        .topnav a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .mySlides {
+            display: none;
+            width: 100%;
+        }
+        .mySlides img {
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+        }
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active-dot, .dot:hover {
+            background-color: #717171;
+        }
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        .content {
+            padding: 20px;
+            background-color: #222;
+            margin-top: 20px;
+            text-align: justify;
+        }
+        h2 {
+            text-align: left;
+        }
+</style>
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+<div class="slideshow-container">
+    <div class="mySlides fade">
+      <img src="{% static 'img/home/gnss-2.jpg' %}" alt="Caption Text 1">
+    </div>
+    <div class="mySlides fade">
+      <img src="{% static 'img/home/gnss3.jpg' %}" alt="Caption Text 2">
+    </div>
+    <div class="mySlides fade">
+      <img src="{% static 'img/home/gnss1.jpg' %}" alt="Caption Text 3">
+    </div>
+    <div class="mySlides fade">
+      <img src="{% static 'img/home/gnss5.jpg' %}" alt="Caption Text 4">
+    </div>
+    <div class="mySlides fade">
+      <img src="{% static 'img/home/gnss6.jpg' %}" alt="Caption Text 5">
+    </div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span> 
+    <span class="dot" onclick="currentSlide(2)"></span> 
+    <span class="dot" onclick="currentSlide(3)"></span> 
+    <span class="dot" onclick="currentSlide(4)"></span> 
+    <span class="dot" onclick="currentSlide(5)"></span> 
+  </div>
+  
+  <div class="content">
+    <h2>WHAT IS GNSS?</h2>
+    <p>A global navigation satellite system (GNSS) comprises satellite constellations that offer worldwide or local positioning, navigation, and timing (PNT) services. While GPS is the most widely utilized GNSS, other nations are implementing their systems to provide supplementary and independent PNT capabilities. GNSS incorporates constellations of satellites orbiting the Earth, transmitting their positional information in space and time, networks of ground control stations, and receivers that determine ground positions using trilateration.</p>
+    <h2>PAST:</h2>
+    <p>Ground-based radio navigation has a rich history spanning several decades. Notable systems such as DECCA, LORAN, GEE, and Omega utilized terrestrial longwave radio transmitters to emit a pulse from a predetermined "master" location, followed by pulses from various "slave" stations. By computing the interval between the reception of the master signal and the slave signals, receivers could accurately ascertain their distance from each slave, thereby facilitating precise location determination. The initiation of the first satellite navigation system, Transit, by the US military in the 1960s marked a significant development. This system operated on the principle of the Doppler effect, where satellites followed established paths and transmitted signals on known radio frequencies. By monitoring the frequency shift of the received signals over a brief period, receivers could determine their spatial position relative to the satellites. The identification and correction of errors caused by radio wave refraction, fluctuations in the gravitational field, and other related phenomena were undertaken by a skilled team led by Harold L. Jury of the Pan Am Aerospace Division in Florida from 1970 to 1973. By using real-time data and iterative estimation, the corrective actions helped reduce systematic and residual errors, allowing for more accurate navigation.</p>
+    <h2>PRESENT:</h2>
+    <p>As of 2024, there are four operational global navigation systems: the United States Global Positioning System (GPS), Russia's Global Navigation Satellite System (GLONASS), China's BeiDou Navigation Satellite System (BDS), and the European Union's Galileo. Supplementing these systems are satellite-based augmentation systems (SBAS) such as Japan's Quasi-Zenith Satellite System (QZSS) and the European EGNOS. Operational regional navigation satellite systems (RNSS) encompass earlier iterations of the BeiDou navigation system and India's Regional Navigation Satellite System (IRNSS) or NavIC.</p>
+    <h2>FUTURE AND APPLICATIONS:</h2>
+    <p>Upon full deployment of all global and regional Positioning, Navigation, and Timing (PNT) systems, users worldwide will gain access to precise positioning, navigation, and timing signals facilitated by a network of over 100 satellites. These signals are indispensable for a diverse array of applications, encompassing transportation (space stations, aviation, maritime, rail, road, and mass transit), telecommunications, land surveying, law enforcement, emergency response, precision agriculture, mining, finance, and scientific research. Furthermore, these PNT systems play a pivotal role in the governance of computer networks, air traffic, power grids, and more. Each system ensures global coverage through a meticulously coordinated satellite constellation comprising 18–30 medium Earth orbit (MEO) satellites distributed across distinct orbital planes. These satellites are situated in orbits with inclinations exceeding 50° and possess orbital periods of approximately twelve hours, orbiting at an altitude of approximately 20,000 kilometers or 12,000 miles.</p>
+  </div>
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+    let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active-dot", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active-dot";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+
+function plusSlides(n) {
+  slideIndex += n - 1;
+  showSlides();
+}
+
+function currentSlide(n) {
+  slideIndex = n - 1;
+  showSlides();
+}
+</script>
+       
+{% endblock %}

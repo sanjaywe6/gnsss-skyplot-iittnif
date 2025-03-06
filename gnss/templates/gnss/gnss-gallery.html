@@ -1,0 +1,119 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+GNSS Gallery
+{% endblock %}
+
+{% block css %}
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: "Lato", sans-serif;
+        font-size: 17px;
+    }
+
+    div.scroll-container {
+        background-color: #333;
+        overflow: auto;
+        white-space: nowrap;
+        padding: 10px;
+    }
+
+
+
+
+    /* Expanding image text */
+    #imgtext {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        color: white;
+        font-size: 20px;
+    }
+
+    /* Closable button inside the expanded image */
+    .closebtn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        color: white;
+        font-size: 35px;
+        cursor: pointer;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+<div style="text-align:center">
+    <h2> GNSS GALLERY</h2>
+    <p>Scroll down</p>
+</div>
+
+<div class="scroll-container">
+    <img src="{% static 'img/home/delta 2 rocket launch-aug09.jpg' %}" alt="IRNSS-1F in clean room during its integration" style="width:100%"
+        onclick="myFunction(this);">
+</div>
+<div class="column">
+    <img src="{% static 'img/home/beidou.jpg' %}" alt="Snow" style="width:100%" onclick="myFunction(this);">
+</div>
+<div class="column">
+    <img src="{% static 'img/home/delta 4 launch first gps-may10.jpg' %}" alt="Mountains" style="width:100%" onclick="myFunction(this);">
+</div>
+<div class="column">
+    <img src="{% static 'img/home/falcon-9 rocket launch-dec18.jpg' %}" alt="Lights" style="width:100%" onclick="myFunction(this);">
+</div>
+<div class="column">
+    <img src="{% static 'img/home/Galileo_satellite_system.jpg' %}" alt="Lights" style="width:100%" onclick="myFunction(this);">
+</div>
+<div class="column">
+    <img src="{% static 'img/home/glonass.jpg' %}" alt="Lights" style="width:100%" onclick="myFunction(this);">
+</div>
+<div class="column">
+    <img src="{% static 'img/home/gps block IIF satellite.jpg' %}" alt="Lights" style="width:100%" onclick="myFunction(this);">
+</div>
+<div class="column">
+    <img src="{% static 'img/home/gps block iir satellite.jpg' %}" alt="Lights" style="width:100%" onclick="myFunction(this);">
+</div>
+<div class="column">
+    <img src="{% static 'img/home/GPS-III-A.jpg' %}" alt="Lights" style="width:100%" onclick="myFunction(this);">
+</div>
+<div class="column">
+    <img src="{% static 'img/home/navic.webp' %}" alt="Lights" style="width:100%" onclick="myFunction(this);">
+</div>
+<div class="column">
+    <img src="{% static 'img/home/qzss.jpeg' %}" alt="Lights" style="width:100%" onclick="myFunction(this);">
+</div>
+<div class="column">
+    <img src="{% static 'img/home/2SOPS-crew-2020.jpg' %}" alt="Lights" style="width:100%" onclick="myFunction(this);">
+</div>
+
+
+
+<div class="container">
+    <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+    <img id="expandedImg" style="width:100%">
+    <div id="imgtext"></div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+    function myFunction(imgs) {
+        var expandImg = document.getElementById("expandedImg");
+        var imgText = document.getElementById("imgtext");
+        expandImg.src = imgs.src;
+        imgText.innerHTML = imgs.alt;
+        expandImg.parentElement.style.display = "block";
+    }
+</script>
+
+{% endblock %}

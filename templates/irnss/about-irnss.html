@@ -1,0 +1,159 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+About IRNSS
+{% endblock %}
+
+{% block css %}
+<style>
+    main {
+        color: #ece8e6;
+    }
+
+    #main {
+        transition: margin-left .5s;
+        padding: 16px;
+    }
+
+    #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: -1; /* Ensure the video stays behind other content */
+        }
+
+    .content {
+        padding: 20px;
+        background-color: rgb(0, 0, 0);
+        margin: 5% auto;
+        text-align: justify;
+        max-width: 800px;
+        border-radius: 10px;
+    }
+
+    .header {
+        padding: 10px;
+        background-color: rgb(241, 235, 235, 0.8);
+        text-align: center;
+        position: relative;
+        width: 100%;
+        top: 0;
+    }
+
+    .header h1 {
+        margin: 0;
+        font-size: 36px;
+    }
+
+    h2 {
+        color: rgb(34, 222, 119);
+    }
+
+    @media screen and (max-height: 450px) {
+        .sidebar {
+            padding-top: 15px;
+        }
+
+        .sidebar a {
+            font-size: 18px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+
+<video autoplay muted loop id="myVideo">
+    <source src="{% static 'vid/irnssvideo1.mp4'%}" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+<div>
+    
+    <div class="header text-danger">
+        <h1>ABOUT THE INDIAN REGIONAL NAVIGATION SATELLITE SYSTEM</h1>
+    </div>
+    
+    <div class="content">
+        <h2>IRNSS:</h2>
+        <p>The Indian Regional Navigation Satellite System (IRNSS) is a state-of-the-art satellite navigation system
+            owned and operated by the Government of India. It was meticulously developed by the renowned Indian Space
+            Research Organization (ISRO) to provide precise navigation services over the expanse of India and its
+            neighbouring countries. The system seamlessly transitioned into operational status with a constellation of
+            seven active satellites perfectly positioned in their designated orbits. Researchers and scientists are
+            privileged to dissect the intricate NavIC signals to conduct in-depth ionospheric studies and pioneer
+            innovative algorithms for improved navigation accuracy. These signals encompass a Standard Positioning
+            Service (SPS) and a Restricted Service (RS) transmitted through L5 (1176.45 MHz) and S-band (2492.028MHz)
+            frequencies. Notably, three of the seven satellites majestically orbit the earth in the geostationary orbit
+            (GEO), while the remaining four gracefully navigate in an inclined geosynchronous orbit (IGSO). In a bid to
+            expand the system's global coverage, ISRO has presented a compelling plan to augment the satellite
+            constellation by deploying twelve satellites in the Medium Earth Orbit (MEO).</p>
+        <h2>The IRNSS system architecture mainly consists of:</h2>
+        <p>Space Segment</p>
+        <p>Ground Segment</p>
+        <p>User Segment</p>
+        <h2>SPACE SEGMENT:</h2>
+        <p>The IRNSS space segment consists of seven satellites. These satellites are designed around an I-1K bus with a
+            dry mass of 600 kg and a launch mass of 1425 kg. They have a power generation capability of 1600 W. Highly
+            stable Rubidium Atomic Frequency Standards (RAFS) are used on board to generate navigation signals. IRNSS is
+            an independent regional navigation satellite system being developed by India. It is designed to provide
+            accurate position information service to users in India as well as the region extending up to 1500 km from
+            its boundary, which is its primary service area. An Extended Service Area lies between the primary service
+            area and the area enclosed by the rectangle from Latitude 30 deg South to 50 deg North, Longitude 30 deg
+            East to 130 deg East. IRNSS will provide two types of services, namely, Standard Positioning Service (SPS)
+            which is provided to all the users and Restricted Service (RS), which is an encrypted service provided only
+            to the authorized users. The IRNSS System is expected to provide a position accuracy of better than 20 m in
+            the primary service area.</p>
+        <h2>GROUND SEGMENT:</h2>
+        <p>
+            The ground segment plays a crucial role in keeping the IRNSS constellation operational. This segment is
+            responsible for the maintenance and operation of the constellation. The ground segment consists of:<br>
+            IRNSS Spacecraft Control Facility (IRSCF)<br>
+            ISRO Navigation Centre (INC)<br>
+            IRNSS Range and Integrity Monitoring Stations (IRIMS)<br>
+            IRNSS Network Timing Centre (IRNWT)<br>
+            IRNSS CDMA Ranging Stations (IRCDR)<br>
+            Laser Ranging Stations<br>
+            IRNSS Data Communication Network (IRDCN)<br>
+            The Indian National Centre for Space-based Positioning, Navigation and Timing (NCSPNT) facility located in
+            Byalalu is responsible for conducting remote operations and data collection with all ground stations.
+            Currently, 14 IRIMS (Indian Regional Navigational Satellite System Range and Integrity Monitoring Stations)
+            are operational and are actively contributing to the operations of the IRNSS (Indian Regional Navigation
+            Satellite System). The four IRCDR (Indian Regional CDMA Ranging) stations regularly perform Code Division
+            Multiple Access (CDMA) ranging for the IRNSS satellites. The IRDCN (Indian Regional Data Communication
+            Network) has established both terrestrial and VSAT links between the ground stations. Furthermore, seven
+            7.2m Fixed Cassegrain Antennas (FCA) and two 11m Fixed Mobile Antennas (FMA) of IRSCF (Indian Regional
+            Satellite Control Facility) are currently in operation to support both the Launch and Early Orbit Phase
+            (LEOP) and the on-orbit phases of the IRNSS satellites.
+        </p>
+        <h2>USER SEGMENT: </h2>
+        <p>
+            The User segment mainly consists of:<br>
+            A single-frequency IRNSS receiver can receive an SPS/RS (Standard Positioning Service/Radio Station) signal
+            at either the L5 frequency or the S-band frequency. <br>
+            A sophisticated dual-frequency IRNSS receiver designed to receive both SPS (Standard Positioning Service)
+            and RS (Restricted Service) signals in the L5 and S-band frequencies, enabling high-precision positioning
+            and navigation capabilities.
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+
+<script>
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+</script>
+
+{% endblock %}

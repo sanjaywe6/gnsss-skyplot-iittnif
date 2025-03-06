@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+<style>
+    /* navabar styles */
+
+</style>
+
+{% block css %}
+{% endblock %}
+
+<body>
+    <head>
+        <nav class="navbar navbar-expand-lg bg-secondary" style="background-color: #c2b28a;">
+            <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content: space-around;">
+                <ul class="navbar-nav mb-2 mb-lg-0 mx-2">
+                  <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/"><b>HOME</b></a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <b>GNSS</b>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="/gnss/index-gnss">GNSS</a></li>
+                      <li><a class="dropdown-item" href="/gnss/gnss-constillations">GNSS CONSTELLATIONS</a></li>
+                      <li><a class="dropdown-item" href="/gnss/gnss-stations-worldwide">GNSS STATIONS WORLD WIDE</a></li>
+                      <li><a class="dropdown-item" href="/gnss/gnss-gallery">GNSS GALLERY</a></li>
+                      <li><a class="dropdown-item" href="/gnss/gnss-experts">GNSS Experts</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/gnss/graph-plot"><b>SKYPLOT</b></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/data"><b>DATA</b></a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <b>IRNSS</b>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="/irnss">IRNSS</a></li>
+                      <li><a class="dropdown-item" href="/about-irnss">About IRNSS</a></li>
+                      <li><a class="dropdown-item" href="/timeline-irnss">Timeline</a></li>
+                      <li><a class="dropdown-item" href="/ongoing-research-irnss">Ongoing Research</a></li>
+                      <li><a class="dropdown-item" href="/stations-institute-working">Stations and Institutes working on IRNSS</a></li>
+                      <li><a class="dropdown-item" href="/irnss-gallery">IRNSS Gallery</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/team"><b>TEAM</b></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="/contact-us"><b>CONTACT US</b></a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+          <nav style="background-color: white;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div style="display: flex; justify-content: center;">
+                    <div><img src="{% static '\img\logos\IITTNiF_Logo.png' %}" alt="" style="width: 200px;"></div>
+                    <div><img src="{% static '\img\logos\NMICPS.jpg' %}" alt="" style="width: 85px;"></div>
+                </div>
+                <div class="mx-4 text-danger">
+                    <h4><b>IIT Tirupati Navavishkar I-Hub Foundation</b></h4>
+                </div>
+            </div>
+          </nav>
+    </head>
+    <main>
+      {% block body %} {% endblock %}
+    </main>
+</body>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" integrity="sha512-vc58qvvBdrDR4etbxMdlTt4GBQk1qjvyORR2nrsPsFPyrs+/u5c3+1Ct6upOgdZoIl7eq6k3a1UPDSNAQi/32A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+{% block js %} {% endblock %}

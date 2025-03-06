@@ -1,0 +1,89 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+Ongoing Research
+{% endblock %}
+
+{% block css %}
+<style>
+    .res-area-para {
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid black;
+        border-radius: 10px;
+        background-color: rgb(223, 223, 223);
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+<main>
+
+    <div class="card text-center">
+        <div class="card-body">
+            <p class="card-text h3">Ongoing research endeavours seek to amplify the capabilities and broaden the
+                applications of IRNSS/NavIC, positioning it as a crucial element of India's strategic and technological
+                infrastructure.</p>
+
+            <div class="card-header">
+                <h3 class="text-primary">RESEARCH AREAS</h3>
+                <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+                    <p class="res-area-para">Signal Processing and Algorithm Development</p>
+                    <p class="res-area-para">Integration with Other GNSS Systems</p>
+                    <p class="res-area-para">Environmental and Disaster Management</p>
+                    <p class="res-area-para"> Agriculture and Rural Development
+                    </p>
+                    <p class="res-area-para"> User Equipment and Receivers
+                    </p>
+                    <p class="res-area-para"> Academic and Industrial Collaboration
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <section>
+            <h2>RESEARCH ARTICLES</h2>
+            <p>
+                <a href="{% static 'pdf/research-articles/1-s2.0-S0030402621019410-main.pdf' %}" target="_blank">Read article on Development
+                    of NavIC synchronized fully automated inter-building QKD framework and demonstration of quantum
+                    secured video calling</a> <br>
+                <a href="{% static 'pdf/research-articles/1-s2.0-S1110982313000045-main.pdf' %}" target="_blank">Read article on Anticipated
+                    prospects and civilian applications of Indian satellite navigation services in Sri Lanka</a><br>
+                <a href="/irnss/research-article/1" target="_blank">Read article on GDoP estimation using
+                    Simulated Annealing for GPS and IRNSS combined constellation </a><br>
+                <a href="/irnss/research-article/2" target="_blank">Read article on Adverse effects of
+                    receiver clock bias and drift on NavIC user position coordinates and their mitigation</a><br>
+                <a href="/irnss/research-article/3" target="_blank">Read article on Analysis of frequency
+                    reconfigurable microstrip patch antenna with unidirectional radiation pattern for IRNSS band</a><br>
+                <a href="/irnss/research-article/4" target="_blank">Read article on Reconfigurable
+                    polarization and pattern microstrip antenna for IRNSS band applications</a><br>
+                <a href="/irnss/research-article/5" target="_blank">Read article on Real-Time Kinematic
+                    Absolute and Relative Velocity Estimation of Geostationary Satellites in Formation Using IRNSS
+                    Observables</a><br>
+                <a href="/irnss/research-article/6" target="_blank">Read article on Predicting and
+                    Analyzing TEC Variations Using Wavelet and Hilbert Huang Decomposition for IRNSS Signals at Low
+                    Latitude Location, Surat, India</a><br>
+                <a href="/irnss/research-article/7" target="_blank">Read article on NavIC Time Transfer
+                    With Satellite Common View: An Analysis on Choosing Different Reference Times</a><br>
+                <a href="/irnss/research-article/8" target="_blank">Read article on Preliminary Analysis of
+                    Standalone Galileo and NavIC in the context of Positioning Performance for Low Latitude
+                    Region</a><br>
+                <a href="/irnss/research-article/9" target="_blank">Read article on Analysis of Various
+                    Parameters of L5 and S1 NavIC Signals over Low Latitude Region</a><br>
+                <a href="/irnss/research-article/10" target="_blank">Read article on A Comprehensive Study
+                    of Linear Kalman Filter Based Tracking Techniques under Ionosphere Scintillation </a><br>
+                <a href="/irnss/research-article/11" target="_blank">Read article on Generation and
+                    implementation of IRNSS Standard Positioning Signal</a>
+            </p>
+
+            <div class="credits">
+                <p>Articles are collected from ScienceDirect</p>
+            </div>
+            {% endblock %}
+
+            {% block js %}
+            {% endblock %}

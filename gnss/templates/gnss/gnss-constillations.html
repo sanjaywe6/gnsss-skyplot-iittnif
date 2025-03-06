@@ -1,0 +1,101 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+GNSS Constillations
+{% endblock %}
+
+{% block css %}
+<style>
+     body {
+            background-color: #121212;
+            color: #FFFFFF;
+        }
+        a {
+            color: #BB86FC;
+        }
+        header, section {
+            padding: 10px;
+        }
+        h3 {
+            color: #101011;
+        }
+        h1, h2 {
+            color: #BB86FC;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .gnss-const-img {
+            max-width: 50%; /* Decrease the maximum width to 50% */
+            max-height: 300px; /* Set the maximum height to 300px */
+            height: auto;
+            display: block;
+            margin: 10px 0;
+        }
+        .header {
+            padding: 2px; /* Adjusted padding */
+            text-align: center;
+            background: #BB86FC;
+            color: white;
+            font-size: 24px; /* Adjusted font size */
+        }
+</style>
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+<div class="header">
+    <h3>GNSS CONSTELLATIONS</h3>
+</div>
+<div>
+    <section>
+        <h2>GPS (Global Positioning System)</h2>
+        <img class="gnss-const-img" src="{% static 'img/home/GPS-III-A.jpg' %}" alt="GPS Satellite">
+        <figcaption>GPS III A (image credit: GPS.GOV via https://www.gps.gov/multimedia/images/)</figcaption>
+        <p>The Global Positioning System (GPS) is a U.S.-owned service that provides users with positioning, navigation, and timing services. It consists of three segments: the space segment, the control segment, and the user segment. The system includes up to 32 medium Earth orbit satellites arranged in six orbital planes, with 31 operational satellites currently in orbit, providing L1 (1575.42 MHz), L2 (1227.60 MHz), and L5 (1176.45 MHz) frequency support.</p>
+        <a href="https://www.gps.gov/" target="_blank">Visit GPS Official Website</a>
+    </section>
+    <section>
+        <h2>GLONASS (Global Navigation Satellite System)</h2>
+        <img class="gnss-const-img" src="{% static 'img/home/glonass.jpg' %}" alt="GLONASS Satellite">
+        <figcaption>GLONASS-M satellite in final manufacturing (JSC “Information Satellite Systems Reshetnev Company”) (image credit: novatel via https://novatel.com/an-introduction-to-gnss/gnss-constellations/glonass)</figcaption>
+        <p>GLONASS, initially developed by the Soviet Union and now operated by Russia, is a satellite-based navigation system that provides civilian radio navigation-satellite service and is used by the Russian Aerospace Defence Forces. It achieved full global coverage in 1995 and currently has 24 active satellites. The GLONASS control segment includes the system control center and a network of command tracking stations across Russia. Similar to GPS, it monitors satellite health and uploads corrections twice a day. GLONASS satellites transmit at slightly different L1 and L2 frequencies, with P-code and C/A codes on both. This technique is known as frequency division multiple access (FDMA).</p>
+        <a href="https://www.glonass-iac.ru/en/" target="_blank">Visit GLONASS Official Website</a>
+    </section>
+    <section>
+        <h2>Galileo</h2>
+        <img class="gnss-const-img" src="{% static 'img/home/Galileo_satellite_system.jpg' %}" alt="Galileo Satellite">
+        <figcaption>Galileo (image credit: Photo: ©ESA; Photo: HI-RIS; Image: ESA/NASA - SOHO/LASCO, Credit: ESA-J.Huart)</figcaption>
+        <p>The European Union and European Space Agency introduced the Galileo positioning system as an alternative to GPS. It became operational on December 15, 2016. The full constellation consists of 24 active satellites, and the system is expected to be compatible with GPS, offering increased accuracy when combined. The main modulation used in the Galileo Open Service signal is the Composite Binary Offset Carrier (CBOC) modulation, transmitting along the L-Band spectrum at various frequencies.</p>
+        <a href="https://www.gsc-europa.eu/" target="_blank">Visit Galileo Official Website</a>
+    </section>
+    <section>
+        <h2>BeiDou</h2>
+        <img class="gnss-const-img" src="{% static 'img/home/beidou.jpg' %}" alt="BeiDou Satellite">
+        <figcaption>The 46th BDS Satellite (image credit: BeiDOU via http://en.beidou.gov.cn/MULTIMEDIA/PHOTO/201906/t20190625_18493.html)</figcaption>
+        <p>The BeiDou Navigation Satellite System (BDS) is an independent system China operates to meet national security and development needs. It provides high-accuracy positioning, navigation, and timing services globally. The BDS has three generations, each with advanced features and improved capabilities. The system consists of multiple satellites in different orbits to ensure better performance and coverage, and it offers various services including navigation, communication, search and rescue, and precise positioning. BeiDou satellites currently transmit several signals, including B1I (1561.098 MHz), B1C (1575.42 MHz), B2a (1175.42 MHz), B2I and B2b (1207.14 MHz), and B3I (1268.52 MHz).</p>
+        <a href="http://en.beidou.gov.cn/" target="_blank">Visit BeiDou Official Website</a>
+    </section>
+    <section>
+        <h2>NavIC</h2>
+        <img class="gnss-const-img" src="{% static 'img/home/navic.webp' %}" alt="NavIC Satellite">
+        <figcaption>PSLV C-22 (image credit: ISRO via https://www.isro.gov.in/mission_PSLV_C22_Gallery.html)</figcaption>
+        <p>The NavIC, or NAVigation with Indian Constellation, is a regional satellite navigation system developed by the Indian Space Research Organisation (ISRO). It consists of 7 navigational satellites providing precise positioning within and around India, with the goal of complete Indian control over the system. In 2018, the NavIC system became available for public use. NavIC provides a standard positioning service for civilian use and a restricted service for authorized users, including the military. The system is expanding to include 11 satellites and plans to become a global system with 24 MEO satellites. It offers services in L5 (1176.45 MHz) and S-band (2498.028 MHz) and covers India and a region up to 1500 km beyond the Indian boundary. The system also introduces a new civilian signal in the L1 band (1575.42 MHz) and all forthcoming satellites will broadcast SPS signals in the L1, L5, and S bands.</p>
+        <a href="https://www.isro.gov.in/SatelliteNavigationServices.htm" target="_blank">Visit NavIC Official Website</a>
+    </section>
+    <section>
+        <h2>QZSS</h2>
+        <img class="gnss-const-img" src="{% static 'img/home/qzss.jpeg' %}" alt="QZSS Satellite">
+        <figcaption>QZS-1 spacecraft in orbit (image credit: JAXA)</figcaption>
+        <p>The Quasi-Zenith Satellite System (QZSS) consists of four satellites that provide regional time transfer and enhance GPS coverage in Japan and the Asia-Oceania regions. QZSS services were available on a trial basis starting from January 12, 2018, and officially started in November 2018. The first satellite was launched in September 2010. Additionally, an independent satellite navigation system with 7 satellites is planned to be launched in 2023.</p>
+        <a href="https://qzss.go.jp/en/" target="_blank">Visit QZSS Official Website</a>
+    </section>
+</div>
+{% endblock %}
+
+{% block js %}
+
+       
+{% endblock %}

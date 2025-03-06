@@ -1,0 +1,199 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+Skyplot
+{% endblock %}
+
+{% block css %}
+<style>
+  .axis line,
+  .axis path {
+    stroke: #000;
+  }
+
+  .grid line {
+    stroke: #ddd;
+  }
+  .antena-imgs{
+    max-width: 400px;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+{% load static %}
+<div style="display: flex; justify-content: center; flex-wrap: wrap;">
+  <div style="margin-right: 200px;">
+    <div class="skyplot_div" style="display: flex; justify-content: center;">
+      <div style="border: 1px solid black; border-radius: 10px; padding: 10px;">
+        <svg id="skyplot" width="600" height="600"></svg>
+      </div>
+      {% csrf_token %}
+    </div>
+    <div>
+      <div style="display: flex; justify-content: center;">
+        <button type="button" class="btn text-light mx-2 my-2" style="background-color: rgb(221, 146, 6);">IRNSS -
+          India</button>
+        <button type="button" class="btn text-light mx-2 my-2" style="background-color: rgb(255, 0, 0);">GPS -
+          USA</button>
+        <button type="button" class="btn text-light mx-2 my-2" style="background-color: #0dcaf0;">GLONASS -
+          Russia</button>
+        <button type="button" class="btn text-light mx-2 my-2" style="background-color: green;">GALILEO -
+          Europe</button>
+        <button type="button" class="btn text-light mx-2 my-2" style="background-color: rgb(247, 0, 255);">BIEDOU -
+          China</button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div><img class="antena-imgs" src="{% static 'img/gnss-img/antena_mounted_at_iittnif.jpg' %}" alt="">
+      <p style="display: flex; justify-content: center;">Antena Mounted at IITTNiF</p>
+    </div>
+      <div><img class="antena-imgs" src="{% static 'img/gnss-img/GNSS_reciever.jpg' %}" alt="">
+        <p style="display: flex; justify-content: center;">GNSS Reciever</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block js %}
+<script>
+
+  $(document).ready(function () {
+
+    function drawSkyplot(svgSelector, satellites) {
+      // Define dimensions
+      const width = 700;
+      const height = 700;
+      const radius = Math.min(width, height) / 2 - 40;
+
+      // Clear previous plot
+      d3.select(svgSelector).selectAll("*").remove();
+
+      // Create SVG
+      const svg = d3.select(svgSelector)
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+      // Define scales
+      const angleScale = d3.scaleLinear()
+        .domain([0, 360])
+        .range([0, 2 * Math.PI]);
+
+      const radiusScale = d3.scaleLinear()
+        .domain([0, 90])
+        .range([0, radius]);
+
+      // Draw circular grid
+      const gr = svg.append("g").attr("class", "grid");
+
+      gr.selectAll("circle")
+        .data(radiusScale.ticks(6).slice(1))
+        .enter().append("circle")
+        .attr("r", radiusScale)
+        .attr("fill", "none")
+        .attr("stroke", "#ddd")
+        .attr('stroke-width', '1px')
+        .attr("stroke-dasharray", "5,5");
+
+      gr.selectAll("line")
+        .data(angleScale.ticks(12))
+        .enter().append("line")
+        .attr("x2", d => Math.cos(angleScale(d) - Math.PI / 2) * radius)
+        .attr("y2", d => Math.sin(angleScale(d) - Math.PI / 2) * radius)
+        .attr("stroke", "#ddd");
+
+      // Draw angle labels
+      svg.selectAll(".angle-label")
+        .data(angleScale.ticks(12))
+        .enter().append("text")
+        .attr("class", "angle-label")
+        .attr("x", d => Math.cos(angleScale(d) - Math.PI / 2) * (radius + 20))
+        .attr("y", d => Math.sin(angleScale(d) - Math.PI / 2) * (radius + 20))
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle")
+        .attr('font-size', '25px')
+        .attr('font-weight', 'bold')
+        .text(d => d + "°");
+
+      // Draw satellites
+      svg.selectAll(".satellite")
+        .data(satellites)
+        .enter().append("circle")
+        .attr("class", "satellite")
+        .attr("r", 25)
+        .attr("cx", d => Math.cos(angleScale(d.azimuth) - Math.PI / 2) * radiusScale(90 - d.elevation))
+        .attr("cy", d => Math.sin(angleScale(d.azimuth) - Math.PI / 2) * radiusScale(90 - d.elevation))
+        .attr("fill", d => d.color);
+
+      // Add labels
+      svg.selectAll(".label")
+        .data(satellites)
+        .enter().append("text")
+        .attr("class", "label")
+        .attr("x", d => Math.cos(angleScale(d.azimuth) - Math.PI / 2) * radiusScale(90 - d.elevation))
+        .attr("y", d => Math.sin(angleScale(d.azimuth) - Math.PI / 2) * radiusScale(90 - d.elevation) - 10)
+        .attr("text-anchor", "middle")
+        .attr('color', '#ff0000')
+        .attr('font-weight', 'bold')
+        .text(d => d.id);
+
+    }
+
+    setInterval(function () {
+
+      $.ajax({
+        url: '/gnss/graph-plot/get-skyplot-data',
+        type: 'GET',
+        success: function (data) {
+          gps = data.gps
+          glonass = data.glonass
+          galileo = data.galileo
+          biedou = data.biedou
+          irnss = data.irnss
+
+          // Clear previous plot
+          d3.select("svg").selectAll("*").remove();
+
+          // Sample satellite data with colors
+          const satellites = [
+            { id: `${gps.sv_prn_num_1}`, azimuth: gps.azimuth_1, elevation: gps.elevation_deg_1, color: "red" },
+            { id: `${gps.sv_prn_num_2}`, azimuth: gps.azimuth_2, elevation: gps.elevation_deg_2, color: "red" },
+            { id: `${gps.sv_prn_num_3}`, azimuth: gps.azimuth_3, elevation: gps.elevation_deg_3, color: "red" },
+            { id: `${gps.sv_prn_num_4}`, azimuth: gps.azimuth_4, elevation: gps.elevation_deg_4, color: "red" },
+            { id: `${glonass.sv_prn_num_1}`, azimuth: glonass.azimuth_1, elevation: glonass.elevation_deg_1, color: "#0dcaf0" },
+            { id: `${glonass.sv_prn_num_2}`, azimuth: glonass.azimuth_2, elevation: glonass.elevation_deg_2, color: "#0dcaf0" },
+            { id: `${glonass.sv_prn_num_3}`, azimuth: glonass.azimuth_3, elevation: glonass.elevation_deg_3, color: "#0dcaf0" },
+            { id: `${glonass.sv_prn_num_4}`, azimuth: glonass.azimuth_4, elevation: glonass.elevation_deg_4, color: "#0dcaf0" },
+            { id: `${galileo.sv_prn_num_1}`, azimuth: galileo.azimuth_1, elevation: galileo.elevation_deg_1, color: "green" },
+            { id: `${galileo.sv_prn_num_2}`, azimuth: galileo.azimuth_2, elevation: galileo.elevation_deg_2, color: "green" },
+            { id: `${galileo.sv_prn_num_3}`, azimuth: galileo.azimuth_3, elevation: galileo.elevation_deg_3, color: "green" },
+            { id: `${galileo.sv_prn_num_4}`, azimuth: galileo.azimuth_4, elevation: galileo.elevation_deg_4, color: "green" },
+            { id: `${biedou.sv_prn_num_1}`, azimuth: biedou.azimuth_1, elevation: biedou.elevation_deg_1, color: "#f700ff" },
+            { id: `${biedou.sv_prn_num_2}`, azimuth: biedou.azimuth_2, elevation: biedou.elevation_deg_2, color: "#f700ff" },
+            { id: `${biedou.sv_prn_num_3}`, azimuth: biedou.azimuth_3, elevation: biedou.elevation_deg_3, color: "#f700ff" },
+            { id: `${biedou.sv_prn_num_4}`, azimuth: biedou.azimuth_4, elevation: biedou.elevation_deg_4, color: "#f700ff" },
+            { id: `${irnss.sv_prn_num_1}`, azimuth: irnss.azimuth_1, elevation: irnss.elevation_deg_1, color: "orange" },
+            { id: `${irnss.sv_prn_num_2}`, azimuth: irnss.azimuth_2, elevation: irnss.elevation_deg_2, color: "orange" },
+            { id: `${irnss.sv_prn_num_3}`, azimuth: irnss.azimuth_3, elevation: irnss.elevation_deg_3, color: "orange" },
+            { id: `${irnss.sv_prn_num_4}`, azimuth: irnss.azimuth_4, elevation: irnss.elevation_deg_4, color: "orange" },
+          ];
+
+          // Call the function to draw the skyplot
+          drawSkyplot("svg", satellites);
+
+        },
+      })
+
+    }, 2000)
+
+  })
+
+</script>
+{% endblock %}

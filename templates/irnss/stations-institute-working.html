@@ -1,0 +1,31 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+Stations and institutes working on IRNSS
+{% endblock %}
+
+{% block css %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+<div>
+  <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+    <img style="max-height: 100vh;" src="{% static 'img/irnssgallery1/india-irnss.jpg' %}" alt="">
+    <div class="my-2 mx-2" style="display: flex; justify-content: center;"><a href="https://docs.google.com/spreadsheets/d/1RVgEe6BWJklgcuN0FLdZtS4k61j8pP1i1AuPLWI2bhg/edit?usp=drivesdk"><button class="btn btn-primary" type="button">Click
+          Here for Dashboard</button></a></div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+
+
+{% endblock %}

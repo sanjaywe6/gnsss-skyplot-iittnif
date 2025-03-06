@@ -1,0 +1,44 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+IRNSS
+{% endblock %}
+
+{% block css %}
+<style>
+    
+    #myVideo {
+      width: 100%;
+    }
+
+    .credits {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: right;
+      background: rgba(0, 0, 0, 0.1);
+      color: #f6f5fb;
+      padding: 3px;
+      z-index: 1;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+<video autoplay muted loop id="myVideo">
+    <source src="{% static 'vid/InShot_20240713_112818308.mp4' %}" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <div class="credits">
+    <p>    Information, pictures, and videos are courtesy of ISRO.</p>
+  </div>
+
+{% endblock %}
+
+{% block js %}
+       
+{% endblock %}

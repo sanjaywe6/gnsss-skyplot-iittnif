@@ -1,0 +1,31 @@
+{% extends 'basic.html' %}
+
+{% block title %}
+GNSS stations worldwide
+{% endblock %}
+
+{% block css %}
+<style>
+
+</style>
+{% endblock %}
+
+{% block body %}
+
+{% load static %}
+
+<div>
+  <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+    <img style="width: 90%;" src="{% static 'img/gnss-img/GNSS_28 IGS stations in world.jpg' %}" alt="">
+    <div class="my-2 mx-2" style="display: flex; justify-content: center;"><a href="https://www.arcgis.com/apps/dashboards/b04930942351434c98c61aff92722204"><button class="btn btn-primary" type="button">Click
+          Here for Dashboard</button></a></div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+
+
+{% endblock %}
