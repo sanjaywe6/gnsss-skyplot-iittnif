@@ -12,11 +12,33 @@ def graphPlot(request):
     
 def sendGSVData(request):
 
-    gps = GPS_data.objects.values().last()
-    glonass = GLONASS_data.objects.values().last()
-    galileo = GALILEO_data.objects.values().last()
-    biedou = Biedou_data.objects.values().last()
-    irnss = IRNSS_data.objects.values().last()
+    # gps = GPS_data.objects.values().last()
+    # glonass = GLONASS_data.objects.values().last()
+    # galileo = GALILEO_data.objects.values().last()
+    # biedou = Biedou_data.objects.values().last()
+    # irnss = IRNSS_data.objects.values().last()
+
+
+    # random data
+    # gps_num = random.randint(1,len(GPS_data.objects.values()))
+    # glonas_num = random.randint(1,len(GLONASS_data.objects.values()))
+    # galileo_num = random.randint(1,len(GALILEO_data.objects.values()))
+    # biedou_num = random.randint(1,len(Biedou_data.objects.values()))
+    # irnss_num = random.randint(1,len(IRNSS_data.objects.values()))
+
+    # random data
+    gps_num = random.randint(1,707781)
+    glonas_num = random.randint(1,454155)
+    galileo_num = random.randint(1,567554)
+    biedou_num = random.randint(1,191536)
+    irnss_num = random.randint(1,35)
+
+    # getting data
+    gps = GPS_data.objects.filter(sno = gps_num).values().first()
+    glonass = GLONASS_data.objects.filter(sno = glonas_num).values().first()
+    galileo = GALILEO_data.objects.filter(sno = galileo_num).values().first()
+    biedou = Biedou_data.objects.filter(sno = biedou_num).values().first()
+    irnss = IRNSS_data.objects.filter(sno = irnss_num).values().first()
     return JsonResponse({'success':200, 'gps':gps, 'glonass':glonass, 'galileo':galileo, 'biedou': biedou, 'irnss':irnss})
 
 @csrf_exempt
